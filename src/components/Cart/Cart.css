@@ -1,0 +1,19 @@
+.review-btn{
+
+    height: 30px;
+    width: 250px;
+    background-color: gold;
+    color:black;
+    border-radius: 5px;
+
+}
+
+.cart-container{
+
+    margin-left: 20px;
+}
+
+.cart-count{
+
+    color: brown;
+}
