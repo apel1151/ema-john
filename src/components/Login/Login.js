@@ -4,6 +4,7 @@ import firebaseConfig from './firebase.config';
 import { useContext, useState } from 'react';
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router";
+import "./login.css";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -194,13 +195,13 @@ let { from } = location.state || { from: { pathname: "/" } };
     
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div className="login" style={{textAlign: 'center', marginTop:"50px" }}>
       {
         user.isSignedIn ? <button onClick={handleSignOut}>Sign Out</button> :
-        <button onClick={handleSignIn}>Sign in using google</button>
+        <button onClick={handleSignIn} style={{height: "40px", borderRadius:"10px", cursor:"pointer", width:"160px", backgroundColor:"blue", color:"white", fontSize:"15px",marginTop:"20px"}}>Sign in using google</button>
       }
       <br />
-      <button onClick={handleFbSignIN}>Sign in using facebook</button>
+      <button style={{height: "40px", borderRadius:"10px", cursor:"pointer", backgroundColor:"blue", width:"160px", color:"white", fontSize:"15px", marginTop:"10px"}} onClick={handleFbSignIN}>Sign in using facebook</button>
 
       {
 
@@ -216,20 +217,20 @@ let { from } = location.state || { from: { pathname: "/" } };
         
       }
                
-               <h3>Our own authentication</h3>
-               <p>Your name: {user.name}</p>
+               <h3 style={{color:"white"}}>Our own authentication</h3>
+               {/* <p>Your name: {user.name}</p>
                <p>Your email: {user.email}</p>
-               <p>Your password: {user.password}</p>
+               <p>Your password: {user.password}</p> */}
 
                <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser"/>
-               <label htmlFor="newUser">New user sign up</label>
+               <label style={{color:"white"}} htmlFor="newUser">Are You New Here?</label><br /><br />
                
                <form onSubmit={handleSubmit}>
-                    {newUser && <input onBlur={handleChange}  type="text" name="name" id="" placeholder="your name"/>}
-                    <br/>
-                    <input onBlur={handleChange} name="email" type="text" placeholder='your email' required/><br/>
-                    <input onBlur={handleChange} name="password" type="password" placeholder='your password' required/><br/>
-                    <input type="submit" value={newUser ? 'Sign up' : 'Sign in'}/>
+                    {newUser && <input style={{width:"300px", borderRadius:"5px", height:"40px"}} onBlur={handleChange}  type="text" name="name" id="" placeholder="Your name"/>}
+                    <br/><br />
+                    <input style={{width:"300px", borderRadius:"5px", height:"40px"}} onBlur={handleChange} name="email" type="text" placeholder='Your email' required/><br/><br />
+                    <input style={{width:"300px", borderRadius:"5px", height:"40px"}} onBlur={handleChange} name="password" type="password" placeholder='Your password' required/><br/><br />
+                    <input type="submit" style={{height: "40px", borderRadius:"10px", cursor:"pointer", backgroundColor:"blue", width:"160px", color:"white", fontSize:"15px"}} value={newUser ? 'Sign up' : 'Sign in'}/>
                </form>
                <p style={{color:'red'}}>{user.error}</p>
                

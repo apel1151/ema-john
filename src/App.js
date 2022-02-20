@@ -25,7 +25,7 @@ function App() {
     
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
      
-     <h3> email: {loggedInUser.email}</h3>
+     {/* <h3> email: {loggedInUser.email}</h3> */}
       
       
       
