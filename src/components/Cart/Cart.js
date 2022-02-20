@@ -4,12 +4,12 @@ import './Cart.css';
 const Cart = (props) => {
 
     const cart = props.cart;
-    console.log(cart)
+    console.log(cart.length)
 
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
-        total = total+ product.price * product.quantity;
+        total = total+ product.price * product.quantity || 1;
         debugger;
         
     }
